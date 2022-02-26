@@ -1,0 +1,39 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: web-0
+spec:
+  type: NodePort
+  ports:
+  - name: web
+    port: 80
+    nodePort: 30000
+  selector:
+    statefulset.kubernetes.io/pod-name: web-0
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: web-1
+spec:
+  type: NodePort
+  ports:
+  - name: web
+    port: 80
+    nodePort: 30001
+  selector:
+    statefulset.kubernetes.io/pod-name: web-1
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: web-2
+spec:
+  type: NodePort
+  ports:
+  - name: web
+    port: 80
+    nodePort: 30002
+  selector:
+    statefulset.kubernetes.io/pod-name: web-2
